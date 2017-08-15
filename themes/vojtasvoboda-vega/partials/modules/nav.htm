@@ -1,0 +1,36 @@
+[viewBag]
+==
+<div class="nav-wrapper">
+    <div class="navbar navbar-custom" role="navigation">
+        <div class="container">
+            <!-- Logo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></button>
+                <a class="navbar-brand text-logo" href="{{ url('/') }}"><img src="{{ 'assets/images/womack-logo.svg'|theme }}" alt="Womack Property Management" height="80" ></a>
+            </div>
+            <!-- /Logo -->
+
+            <!-- Navigation -->
+            <div class="navbar-collapse collapse">
+                <ul id="menu-header" class="nav navbar-nav navbar-right menu-header">
+                    <li class="page-scroll menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Home" href="#intro">Home</a>
+                    </li>
+                    <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Action" href="/about-us">Why Womack</a>
+                    </li>
+                    <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Featured" href="/properties-managed">Properties Managed</a>
+                    </li>
+                    <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Latest Posts" href="/testimonials">Testimonials</a>
+                    </li>
+                    <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Latest Posts" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
