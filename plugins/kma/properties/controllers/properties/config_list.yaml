@@ -1,0 +1,11 @@
+title: Properties
+modelClass: Kma\Properties\Models\Property
+list: $/kma/properties/models/property/columns.yaml
+recordUrl: 'kma/properties/properties/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

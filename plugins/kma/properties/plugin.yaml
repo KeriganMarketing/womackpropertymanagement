@@ -1,0 +1,11 @@
+plugin:
+    name: 'kma.properties::lang.plugin.name'
+    description: 'kma.properties::lang.plugin.description'
+    author: KMA
+    icon: oc-icon-building
+    homepage: ''
+navigation:
+    properties:
+        label: Properties
+        url: kma/properties/properties
+        icon: icon-building

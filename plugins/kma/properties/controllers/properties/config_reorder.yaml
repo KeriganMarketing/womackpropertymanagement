@@ -1,0 +1,5 @@
+title: Properties
+modelClass: Kma\Properties\Models\Property
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

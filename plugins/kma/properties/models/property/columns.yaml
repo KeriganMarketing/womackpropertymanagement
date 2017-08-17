@@ -1,0 +1,15 @@
+columns:
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    sqft:
+        label: 'Square Ft'
+        type: number
+        sortable: true
+    address:
+        label: Address
+        type: text
+        searchable: true
+        sortable: false
