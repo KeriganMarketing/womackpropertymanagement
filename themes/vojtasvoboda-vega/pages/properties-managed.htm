@@ -4,13 +4,35 @@ layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-
-[builderList]
-modelClass = "Kma\Properties\Models\Property"
-scope = "-"
-displayColumn = "name"
-noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
-pageNumber = "{{ :page }}"
 ==
+<?php
+use KMA\Properties\Models\Property;
+
+function onStart()
+{
+    $this['currentProperties'] = Property::where('currently_managed', 1)->get();
+    $this['previouslyManaged'] = Property::where('currently_managed', 0)->get();
+}
+?>
+==
+
+<div class="container">
+    <h2>Current Properties</h2>
+    {% for property in currentProperties %}
+        <div class="row">
+            <img src="{{ property.image|media }}" class="img img-responsive" alt="{{ property.description }}">{{ property.name }} - {{ property.address }} - {{ property.sqft }}</li>
+        </div>
+    {% endfor %}
+</div>
+<hr>
+<div class="container">
+    <h2>Previously Managed Properties</h2>
+    {% for property in previouslyManaged %}
+        <div class="row">
+            <img src="{{ property.image|media }}" class="img img-responsive" alt="{{ property.description }}">{{ property.name }} - {{ property.address }} - {{ property.sqft }}</li>
+        </div>
+    {% endfor %}
+</div>
+
+
+

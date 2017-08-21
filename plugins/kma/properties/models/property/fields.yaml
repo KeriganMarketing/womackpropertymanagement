@@ -1,23 +1,24 @@
 fields:
     name:
         label: Name
-        oc.commentPosition: ''
         span: full
         required: 1
         type: text
         comment: 'Enter the property name'
-    address:
-        label: Address
-        size: ''
-        oc.commentPosition: ''
-        span: full
-        required: 1
-        type: richeditor
+    featured:
+        label: 'Featured on Homepage'
+        span: auto
+        type: switch
+    currently_managed:
+        label: 'Currently managed'
+        span: auto
+        type: switch
     sqft:
-        label: 'Square Ft.'
+        label: 'Square Feet'
         oc.commentPosition: ''
-        span: left
-        type: number
+        span: auto
+        required: 1
+        type: text
     image:
         label: Image
         oc.commentPosition: ''
@@ -25,10 +26,18 @@ fields:
         span: auto
         required: 1
         type: mediafinder
+    address:
+        label: Address
+        size: small
+        oc.commentPosition: ''
+        span: auto
+        placeholder: 'Address for the property'
+        required: 1
+        type: textarea
     description:
         label: Description
-        size: large
+        size: small
         oc.commentPosition: ''
-        span: full
+        span: left
         required: 1
-        type: richeditor
+        type: textarea

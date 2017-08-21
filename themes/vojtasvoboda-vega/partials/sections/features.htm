@@ -1,58 +1,24 @@
-f<div class="section bg-grey-light frontpage-4cols" id="4cols">
+<div class="section bg-grey-light frontpage-4cols" id="4cols">
     <div class="container">
         <h2 class="wow zoomIn block-title">Properties Managed</h2>
         <div class="wow zoomIn text-center description">
             {% content 'features/content' %}
         </div>
         <div class="row cols">
-            <div class="col-md-3 col-sm-6">
-                <div class="embed-responsive embed-responsive-4by3">
-                    <img src="{{ '/Properties/vorbeck-building-panama-city-fl.jpg'|media }}" class="img-responsive" >
-                </div>
-                <div class="content-icon wow fadeInUp">
-                    <h4 class="title">Vorbeck Building</h4>
-                    <div class="body">
-                        <p class="address">200 Richard Jackson Blvd.,<br>Panama City Beach, FL</p>
-                        <p class="sqft">67,414 Sqft.</p>
+            {% for property in properties %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="{{ property.image|media }}" class="img-responsive" >
+                    </div>
+                    <div class="content-icon wow fadeInUp">
+                        <h4 class="title">{{ property.name }}</h4>
+                        <div class="body">
+                            <p class="address">{{ property.address|nl2br }}</p>
+                            <p class="sqft">{{ property.sqft }} Sqft.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="embed-responsive embed-responsive-4by3">
-                    <img src="{{ '/Properties/gmo-building-mobile-al.png'|media }}" class="img-responsive" >
-                </div>
-                <div class="content-icon wow fadeInUp">
-                    <h4 class="title">GM&O Building</h4>
-                    <div class="body">
-                        <p class="address">110 Beauregard St.,<bR>Mobile, AL</p>
-                        <p class="sqft">53,161 Sqft.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="embed-responsive embed-responsive-4by3">
-                    <img src="{{ '/Properties/lakeway-center-metairie-la.jpg'|media }}" class="img-responsive" >
-                </div>
-                <div class="content-icon wow fadeInUp">
-                    <h4 class="title">Three Lakeway Center</h4>
-                    <div class="body">
-                        <p class="address">3838 North Causeway Boulevard,<br>Metairie, LA</p>
-                        <p class="sqft">1,350,000 Sqft.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="embed-responsive embed-responsive-4by3">
-                    <img src="{{ '/Properties/citrus-center-orlando-fl.jpg'|media }}" class="img-responsive" >
-                </div>
-                <div class="content-icon wow fadeInUp">
-                    <h4 class="title">Citrus Center</h4>
-                    <div class="body">
-                        <p class="address">25 W South St,<br>Orlando, FL</p>
-                        <p class="sqft">260,751 Sqft.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <p class="text-center">
             <a class="btn btn-primary-custom btn-margin-top" href="/about-us/">More Properties Managed</a>

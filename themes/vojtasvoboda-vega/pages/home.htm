@@ -5,6 +5,15 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 ==
+<?php
+use KMA\Properties\Models\Property;
+
+function onStart()
+{
+    $this['properties'] = Property::where('featured', 1)->orderBy('currently_managed', 'DESC')->get();
+}
+?>
+==
 {% partial 'sections/intro' %}
 {% partial 'sections/welcome' %}
 {% partial 'sections/features' %}

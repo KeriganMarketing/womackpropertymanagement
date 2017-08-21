@@ -13,4 +13,13 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
     }
+
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'nl2br' => 'nl2br'
+            ]
+        ];
+    }
 }

@@ -13,3 +13,13 @@ columns:
         type: text
         searchable: true
         sortable: false
+    featured:
+        label: Featured
+        type: switch
+        searchable: true
+        sortable: true
+    currently_managed:
+        label: 'Currently Managed'
+        type: switch
+        searchable: true
+        sortable: true
