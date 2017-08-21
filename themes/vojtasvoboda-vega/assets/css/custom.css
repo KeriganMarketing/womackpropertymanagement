@@ -16,3 +16,9 @@ li#menu-item-668 {
 .widget_facebook_likebox {
     overflow: hidden;
 }
+
+.embed-responsive .img-responsive {
+    min-height: 165px;
+    width: auto;
+    min-width: 100%;
+}

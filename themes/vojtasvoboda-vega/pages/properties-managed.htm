@@ -15,24 +15,45 @@ function onStart()
 }
 ?>
 ==
-
-<div class="container">
-    <h2>Current Properties</h2>
+<p>&nbsp;</p>
+    <h3>Current Properties</h3>
+    <div class="row">
     {% for property in currentProperties %}
-        <div class="row">
-            <img src="{{ property.image|media }}" class="img img-responsive" alt="{{ property.description }}">{{ property.name }} - {{ property.address }} - {{ property.sqft }}</li>
+        <div class="col-md-3 col-sm-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{ property.image|media }}" class="img-responsive" alt="{{ property.description }}" >
+            </div>
+            <div class="content-icon wow fadeInUp">
+                <h4 class="title">{{ property.name }}</h4>
+                <div class="body">
+                    <p class="address">{{ property.address|nl2br }}</p>
+                    <p class="sqft">{{ property.sqft }} Sqft.</p>
+                </div>
+            </div>
         </div>
     {% endfor %}
-</div>
-<hr>
-<div class="container">
-    <h2>Previously Managed Properties</h2>
+    </div>
+
+    <hr>
+
+    <h3>Previously Managed Properties</h3>
+    <div class="row">
     {% for property in previouslyManaged %}
-        <div class="row">
-            <img src="{{ property.image|media }}" class="img img-responsive" alt="{{ property.description }}">{{ property.name }} - {{ property.address }} - {{ property.sqft }}</li>
+        <div class="col-md-3 col-sm-6">
+            <div class="embed-responsive embed-responsive-4by3">
+                <img src="{{ property.image|media }}" class="img-responsive" alt="{{ property.description }}" >
+            </div>
+            <div class="content-icon wow fadeInUp">
+                <h4 class="title">{{ property.name }}</h4>
+                <div class="body">
+                    <p class="address">{{ property.address|nl2br }}</p>
+                    <p class="sqft">{{ property.sqft }} Sqft.</p>
+                </div>
+            </div>
         </div>
     {% endfor %}
-</div>
+    </div>
+
 
 
 
