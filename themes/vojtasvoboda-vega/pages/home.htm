@@ -11,13 +11,13 @@ use Kma\Testimonials\Models\Testimonial;
 
 function onStart()
 {
-    $this['properties']   = Property::where('featured', 1)->orderBy('currently_managed', 'DESC')->get();
-    $this['testimonials'] = Testimonial::where('featured', 1)->first();
+    $this['properties']  = Property::where('featured', 1)->orderBy('currently_managed', 'DESC')->get();
+    $this['testimonial'] = Testimonial::where('featured', 1)->first();
 }
 ?>
 ==
 {% partial 'sections/intro' %}
 {% partial 'sections/welcome' %}
 {% partial 'sections/features' %}
-{% partial 'sections/cta' %}
+{% partial 'sections/cta' testimonial=testimonial %}
 {% partial 'sections/contact' %}
