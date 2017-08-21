@@ -5,15 +5,23 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 ==
+<?php
+
+    use Kma\Testimonials\Models\Testimonial;
+
+    public function onStart()
+    {
+        $this['testimonials'] = Testimonial::all();
+    }
+
+?>
+==
 <p>&nbsp;</p>
-<p>&ldquo;Patti has been managing our Gulf, Mobile and Ohio (GM&amp;O). a&nbsp;Historic Building in Mobile, Alabama for the past few years. Ms. Womack has done an excellent job of handling the many difficulties that occur in a 60.000 square foot Historic Building. She has helped us in&nbsp;keeping our costs at or below budget. She has been able to manage several emergencies and is on call for us 24/7. On many occasions we have received compliments from our tenants for both Patti&rsquo;s service and her easy going demeanor. We would highly recommend Patti and her company for Property Management Services.&rdquo;</p>
-<p>&mdash; Mark Balan,&nbsp;Managing Partner<br />Merrimac Partners LLC</p>
-<p>&nbsp;</p>
-<hr />
-<p>&ldquo;Patti was a wonderful property manager for us. No matter what issue we had, we could always depend on her to give it prompt and efficient attention. Patti has become part of the family, we are so grateful for her!&rdquo;</p>
-<p>&mdash; Chelsea Mordhorst,&nbsp;Branch Operations Officer<br /> Community Bank</p>
-<p>&nbsp;</p>
-<hr />
-<p>&ldquo;As an investor in real estate, I have had the privilege to work with Patti Womack on the management of our townhome project.&nbsp; Throughout her management tenure, she has exhibited only the highest of standards in her business dealings.&nbsp; She always went the extra mile to ensure that she knew everything about a property and was eager to do whatever was necessary to improve our property and make it a financially productive investment.&nbsp;Her hard work and motivation to excel to the highest standard is remarkable and greatly appreciated by all those who have had the opportunity to do business with her.</p>
-<p>Patti's hard work and motivation to do excellent work shows a great work ethic and strong determination which I find rare in today&rsquo;s world.&nbsp; If all my associates were of the caliber of Patti Womack, I would be immensely blessed.&nbsp; I therefore, highly encourage you to consider Patti and her team for your investment property needs.&nbsp; She will be a great asset in any enterprise which she undertakes and will be an effective advocate for the property owners whom she represents.&rdquo;</p>
-<p>&mdash; C. Chafin, C-E Properties, LP</p>
+{% for testimonial in testimonials %}
+    <p>"{{ testimonial.comment|nl2br }}"</p>
+    <p>&mdash; {{ testimonial.author }}{% if testimonial.author_title %},&nbsp;{{ testimonial.author_title }}{% endif %}
+        <br>
+        {{ testimonial.author_company }}
+    </p>
+    <hr>
+{% endfor %}

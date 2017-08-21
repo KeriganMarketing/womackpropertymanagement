@@ -1,0 +1,11 @@
+name: TestimonialsController
+modelClass: Kma\Testimonials\Models\Testimonial
+form: $/kma/testimonials/models/testimonial/fields.yaml
+defaultRedirect: kma/testimonials/testimonialscontroller
+create:
+    redirect: 'kma/testimonials/testimonialscontroller/update/:id'
+    redirectClose: kma/testimonials/testimonialscontroller
+update:
+    redirect: kma/testimonials/testimonialscontroller
+    redirectClose: kma/testimonials/testimonialscontroller
+preview: {  }

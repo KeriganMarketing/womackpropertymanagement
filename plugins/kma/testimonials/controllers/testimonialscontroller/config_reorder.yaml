@@ -1,0 +1,5 @@
+title: TestimonialsController
+modelClass: Kma\Testimonials\Models\Testimonial
+nameFrom: author
+toolbar:
+    buttons: reorder_toolbar

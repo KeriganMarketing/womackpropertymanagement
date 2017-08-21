@@ -1,0 +1,11 @@
+plugin:
+    name: 'kma.testimonials::lang.plugin.name'
+    description: 'kma.testimonials::lang.plugin.description'
+    author: KMA
+    icon: oc-icon-star
+    homepage: ''
+navigation:
+    testimonial-menu-item:
+        label: 'kma.testimonials::lang.plugin.name'
+        url: kma/testimonials/testimonialscontroller
+        icon: icon-star
