@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      => '216.119.142.71',
             'port'      => '3306',
-            'database'  => 'womack',
-            'username'  => 'womack',
-            'password'  => 'womack',
+            'database'  => 'womackpr_demo',
+            'username'  => 'womackpr_usr',
+            'password'  => 'E7C&rH.UCT(~~[iu^W',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

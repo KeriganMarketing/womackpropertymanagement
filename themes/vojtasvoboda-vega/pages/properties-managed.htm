@@ -5,3 +5,55 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 ==
+<?php
+use KMA\Properties\Models\Property;
+
+function onStart()
+{
+    $this['currentProperties'] = Property::where('currently_managed', 1)->get();
+    $this['previouslyManaged'] = Property::where('currently_managed', 0)->get();
+}
+?>
+==
+<p>&nbsp;</p>
+    <h3>Current Properties</h3>
+    <div class="row">
+    {% for property in currentProperties %}
+        <div class="col-md-3 col-sm-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{ property.image|media }}" class="img-responsive" alt="{{ property.description }}" >
+            </div>
+            <div class="content-icon wow fadeInUp">
+                <h4 class="title">{{ property.name }}</h4>
+                <div class="body">
+                    <p class="address">{{ property.address|nl2br }}</p>
+                    <p class="sqft">{{ property.sqft }} Sqft.</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <hr>
+
+    <h3>Previously Managed Properties</h3>
+    <div class="row">
+    {% for property in previouslyManaged %}
+        <div class="col-md-3 col-sm-6">
+            <div class="embed-responsive embed-responsive-4by3">
+                <img src="{{ property.image|media }}" class="img-responsive" alt="{{ property.description }}" >
+            </div>
+            <div class="content-icon wow fadeInUp">
+                <h4 class="title">{{ property.name }}</h4>
+                <div class="body">
+                    <p class="address">{{ property.address|nl2br }}</p>
+                    <p class="sqft">{{ property.sqft }} Sqft.</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+
+

@@ -1,0 +1,39 @@
+fields:
+    date:
+        label: 'Date Submitted'
+        oc.commentPosition: ''
+        mode: date
+        span: auto
+        type: datepicker
+    featured:
+        label: 'Featured on homepage?'
+        span: auto
+        type: switch
+    author:
+        label: Author
+        oc.commentPosition: ''
+        span: left
+        placeholder: 'Author of the testimonial'
+        type: text
+    author_title:
+        label: 'Author Title'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    author_company:
+        label: Company
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    source:
+        label: 'Source of Testimonial'
+        oc.commentPosition: ''
+        span: auto
+        placeholder: 'Google, Facebook, etc'
+        type: text
+    comment:
+        label: Comment
+        size: huge
+        oc.commentPosition: ''
+        span: full
+        type: textarea

@@ -1,0 +1,15 @@
+columns:
+    author:
+        label: Author
+        type: text
+        searchable: true
+        sortable: true
+    comment:
+        label: Comment
+        type: text
+        searchable: true
+    author_company:
+        label: Company
+        type: text
+        searchable: true
+        sortable: true

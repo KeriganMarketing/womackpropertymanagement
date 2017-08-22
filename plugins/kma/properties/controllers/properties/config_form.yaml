@@ -1,0 +1,10 @@
+name: Properties
+modelClass: Kma\Properties\Models\Property
+form: $/kma/properties/models/property/fields.yaml
+defaultRedirect: kma/properties/properties
+create:
+    redirect: 'kma/properties/properties/update/:id'
+    redirectClose: kma/properties/properties
+update:
+    redirect: kma/properties/properties
+    redirectClose: kma/properties/properties

@@ -2,9 +2,9 @@
 <div class="section frontpage-cta parallax-bg" data-parallax="scroll" data-image-src="{{ 'assets/images/placeholder/placeholder-2.jpg' | theme }}" id="cta">
     <div class="container wow zoomIn description">
         <div class="description">
-
-            {% content 'cta/content' %}
-
+            <p>"{{ testimonial.comment }}"</p>
+            <p><strong>{{ testimonial.author}}</strong>, {{ testimonial.author_title }}
+                <br>{{ testimonial.author_company }}</p>
             <p>
                 <a class="btn btn-primary-custom btn-margin-top btn-margin-bottom" href="/testimonials">More Testimonials</a>
             </p>

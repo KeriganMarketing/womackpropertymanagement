@@ -5,3 +5,23 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 ==
+<?php
+
+    use Kma\Testimonials\Models\Testimonial;
+
+    public function onStart()
+    {
+        $this['testimonials'] = Testimonial::all();
+    }
+
+?>
+==
+<p>&nbsp;</p>
+{% for testimonial in testimonials %}
+    <p>"{{ testimonial.comment|nl2br }}"</p>
+    <p>&mdash; {{ testimonial.author }}{% if testimonial.author_title %},&nbsp;{{ testimonial.author_title }}{% endif %}
+        <br>
+        {{ testimonial.author_company }}
+    </p>
+    <hr>
+{% endfor %}
