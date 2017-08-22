@@ -19,9 +19,7 @@ robot_follow = "follow"
 <p>&nbsp;</p>
 {% for testimonial in testimonials %}
     <p>"{{ testimonial.comment|nl2br }}"</p>
-    <p>&mdash; {{ testimonial.author }}{% if testimonial.author_title %},&nbsp;{{ testimonial.author_title }}{% endif %}
-        <br>
-        {{ testimonial.author_company }}
+<p>&mdash; <strong>{{ testimonial.author }}</strong>{% if testimonial.author_title %},&nbsp;{{ testimonial.author_title }}{% endif %}, {{ testimonial.author_company }}
     </p>
     <hr>
 {% endfor %}

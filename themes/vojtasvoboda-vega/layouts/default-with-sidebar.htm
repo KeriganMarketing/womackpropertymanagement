@@ -52,6 +52,10 @@ function onStart() {
 <div class="section page-content bg-white">
     <div class="container">
         <div class="row">
+
+            <div class="col-md-3 sidebar">
+                {% partial 'modules/sidebar' %}
+            </div>
             <div class="col-md-9">
                 <div class="clearfix page type-page status-publish hentry">
                     <h1 class="page-title">{{ this.page.title }}</h1>
@@ -60,9 +64,7 @@ function onStart() {
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 sidebar">
-                {% partial 'modules/sidebar' %}
-            </div>
+
         </div>
     </div>
 </div>
