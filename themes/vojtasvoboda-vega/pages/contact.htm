@@ -31,7 +31,7 @@ function onSend()
         Mail::send('contactform::user', compact('fullName'), function($message) {
             $message->to(post('email'));
         });
-        Mail::send('contactform::admin', compact('fullName'), function($message) {
+        Mail::send('contactform::admin', compact('fullName', 'email', 'comment'), function($message) {
             $message->to('daron@kerigan.com');
         });
         $this['result'] = 'Thanks! We\'ll get back with you soon!';
