@@ -1,13 +1,11 @@
 [viewBag]
 ==
-<div>
-    {% if result %}
-         <span class="lead">
-            <span class="label label-success">{{ result }}</span>
-        </span>
-    {% else %}
-        <span class="text-muted">
-        <!-- nothing -->
-        </span>
-    {% endif %}
-</div>
+{% if result %}
+     <span class="lead">
+        <span class="label label-success">{{ result }}</span>
+    </span>
+{% else %}
+    <span class="text-muted">
+    <!-- nothing -->
+    </span>
+{% endif %}

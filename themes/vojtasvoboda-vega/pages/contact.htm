@@ -67,7 +67,9 @@ function onSend()
                             <div class="wpcf7-response-output wpcf7-display-none"></div>
                         </form> -->
                         <form>
-                            {% partial "formMessage" %}
+                            <div id="result">
+                              {% partial "formMessage" %}
+                            </div>
 
                             <div class="form-group"><span class="full-name"><input type="text" name="full-name" value="" size="40" class="form-control" aria-required="true" aria-invalid="false" placeholder="Full Name" /></span></div>
 
