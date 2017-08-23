@@ -11,20 +11,22 @@ use Illuminate\Support\Facades\Mail;
 
 function onSend()
 {
-    $data = Input::all();
-    $rules = [
+    $fullName   = post('full-name');
+    $email      = post('email');
+    $comment    = post('message');
+    $rules      = [
         'full-name' => 'required',
-        'email' => 'required|email',
-        'message' => 'required'
+        'email'     => 'required|email',
+        'message'   => 'required'
     ];
-    $msgs = ['required' => 'Please fill in the required fields', 'email' => 'Please enter a valid email address'];
-    $v = Validator::make($data, $rules, $msgs);
+    $msgs       = ['required' => 'Please fill in the required fields', 'email' => 'Please enter a valid email address'];
+    $v          = Validator::make($data, $rules, $msgs);
 
     if ($v->fails())
     {
         $this['result'] = $v->messages()->first();
     }else{
-        Mail::send('contactform::user', $data, function($message) use ($data) {
+        Mail::send('contactform::user', compact('fullName'), function($message) use ($data) {
             $message->to(post('email'));
         });
         $this['result'] = 'Email sent';
@@ -84,7 +86,7 @@ function onSend()
                             <div class="form-group"><span class="message">
                                 <textarea name="message" cols="40" rows="10" class="form-control" aria-invalid="false" placeholder="Message"></textarea></span>
                             </div>
-                            <button type="submit" data-request="onSend" class=" btn btn-primary-custom btn-block btn-lg">Send</button>
+                            <button type="submit" data-request="onSend" data-request-update="result" class=" btn btn-primary-custom btn-block btn-lg">Send</button>
                             <div class=""></div>
                         </form>
                     </div>
