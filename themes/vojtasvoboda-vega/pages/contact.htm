@@ -21,10 +21,11 @@ public function onSend()
     {
         $this['result'] = $v->messages()->first();
     }else{
-        Mail::queue('contactform::user', $data, function($message) use ($data) {
-            dd(post('email'));
-            $message->to(post('email'));
-        });
+        dd('got here');
+        // Mail::queue('contactform::user', $data, function($message) use ($data) {
+
+        //     $message->to(post('email'));
+        // });
         $this['result'] = 'Email sent';
     }
 }
