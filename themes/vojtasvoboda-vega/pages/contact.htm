@@ -5,4 +5,28 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 ==
+<?php
+public function onSend()
+{
+    $data = Input::all();
+    $rules = [
+        'full-name' => 'required',
+        'email' => 'required|email',
+        'message' => 'required'
+    ];
+    $msgs = ['required' => 'Please fill in the required fields', 'email' => 'Please enter a valid email address'];
+    $v = Validator::make($data, $rules, $msgs);
+
+    if ($v->fails())
+    {
+        $this['result'] = $v->messages()->first();
+    }else{
+        Mail::queue('contactform::user', $data, function($message) use ($data) {
+            $message->to(post('email'));
+        });
+        $this['result'] = 'Email sent';
+    }
+}
+
+==
 {% partial 'sections/contact' %}
