@@ -7,5 +7,36 @@ robot_follow = "follow"
 ==
 <?php
 
+use Illuminate\Support\Facades\Mail;
+
+function onSend()
+{
+    $data = Input::all();
+    $fullName   = post('full-name');
+    $email      = post('email');
+    $comment    = post('message');
+    $rules      = [
+        'full-name' => 'required',
+        'email'     => 'required|email',
+        'message'   => 'required'
+    ];
+    $msgs       = ['required' => 'Please fill in the required fields', 'email' => 'Please enter a valid email address'];
+    $v          = Validator::make($data, $rules, $msgs);
+
+    if ($v->fails())
+    {
+        $this['result'] = $v->messages()->first();
+        $this['failed'] = true;
+    }else{
+        Mail::send('contactform::user', compact('fullName'), function($message) {
+            $message->to(post('email'));
+        });
+        // Mail::send('contactform::admin', compact('fullName', 'email', 'comment'), function($message) {
+        //     $message->to(['patti@womackpropertymanagement.com', 'support@kerigan.com']);
+        // });
+        $this['result'] = 'Thanks! We\'ll get back with you soon!';
+    }
+}
+?>
 ==
 {% partial 'sections/contact' %}
