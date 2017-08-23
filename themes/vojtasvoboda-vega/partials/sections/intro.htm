@@ -3,10 +3,18 @@
 <div
     class="image-banner frontpage-banner frontpage-banner-parallax-bg{% if this.theme.intro_fullscreen %} full-screen{% endif %}"
     data-parallax="scroll"
-    data-image-src="{{ 'assets/images/placeholder/538683932.jpg' | theme }}"
+    data-image-src="{{ 'assets/images/placeholder/placeholder-1.jpg' | theme }}"
     id="intro">
     <div class="container">
         <div class="inner">
+            <h1 class="block-title wow zoomIn">Commercial Property Management Services</h1>
+            <div class="wow fadeInUp description text-center">
+                {% content 'home/intro' %}
+                <p>
+                    <a class="btn btn-primary-custom btn-margin-top" href="/about-us/">Why Womack has the expertise to manage your asset</a> <a class="btn btn-primary-custom btn-margin-top" href="/testimonials/">Read what our clients say about our services</a>
+                </p>
+                <br>
+            </div>
         </div>
         <div class="helper"></div>
     </div>

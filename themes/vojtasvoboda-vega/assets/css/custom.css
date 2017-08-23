@@ -56,10 +56,22 @@ li#menu-item-668 {
     .widget ul li {
         font-size: 1em;
     }
-    .frontpage-content .description a {
+    .image-banner .description a {
         margin:20px .75rem;
     }
+
+    .frontpage-banner.frontpage-banner-parallax-bg {
+        margin: 0;
+        padding: 155px 0 98px;
+    }
+
 }
+
+.frontpage-banner.image-banner p {
+    font-size: 20px;
+    font-weight: normal;
+}
+
 
 a.btn {
     max-width: 100%;
@@ -68,9 +80,7 @@ a.btn {
 }
 
 .frontpage-banner.frontpage-banner-parallax-bg:before {
-    width: 100%;
-    height: 100%;
-    background-color: transparent !important;
+    opacity: .5;
 }
 
 .frontpage-4cols p {
@@ -89,9 +99,35 @@ a.btn {
 }
 
 .property h4.title {
-    min-height: 48px;
+    min-height: 50px;
 }
 
 .copyright {
     line-height: 2.3;
+}
+
+.page-content h1.page-title {
+    position: relative;
+    padding-bottom: 20px;
+    line-height: 20px;
+    margin: 0 0 15px;
+}
+
+.page-content .page-title:after {
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    content: "";
+    border-bottom: 1px solid #3DC5C9;
+}
+
+.page-content h1.page-title:after {
+    border-bottom: 1px solid #3DC5C9;
+}
+
+.sidebar {
+    margin-top: 19px;
+    padding-right: 36px;
 }
