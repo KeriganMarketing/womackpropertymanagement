@@ -25,7 +25,8 @@ function onSend()
 
     if ($v->fails())
     {
-        $this['failed'] = $v->messages()->first();
+        $this['result'] = $v->messages()->first();
+        $this['failed'] = true;
     }else{
         Mail::send('contactform::user', compact('fullName'), function($message) {
             $message->to(post('email'));
