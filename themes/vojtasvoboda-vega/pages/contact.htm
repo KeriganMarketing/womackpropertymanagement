@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 function onSend()
 {
+    $data = Input::all();
     $fullName   = post('full-name');
     $email      = post('email');
     $comment    = post('message');
@@ -26,7 +27,7 @@ function onSend()
     {
         $this['result'] = $v->messages()->first();
     }else{
-        Mail::send('contactform::user', compact('fullName'), function($message) use ($data) {
+        Mail::send('contactform::user', compact('fullName'), function($message) {
             $message->to(post('email'));
         });
         $this['result'] = 'Email sent';
