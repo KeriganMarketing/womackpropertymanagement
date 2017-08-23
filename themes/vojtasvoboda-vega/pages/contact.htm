@@ -21,7 +21,8 @@ public function onSend()
     {
         $this['result'] = $v->messages()->first();
     }else{
-        Mail::send('contactform::user', $data, function($message) use ($data) {
+        Mail::queue('contactform::user', $data, function($message) use ($data) {
+            dd(post('email'));
             $message->to(post('email'));
         });
         $this['result'] = 'Email sent';
