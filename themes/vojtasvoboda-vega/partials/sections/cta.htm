@@ -3,8 +3,11 @@
     <div class="container wow zoomIn description">
         <div class="description">
             <p>"{{ testimonial.comment }}"</p>
-            <p><strong>{{ testimonial.author}}</strong>, {{ testimonial.author_title }}
-                <br>{{ testimonial.author_company }}</p>
+            <p>
+                {% if (testimonial.author) %}
+                <strong>{{ testimonial.author}}</strong>,{% endif %} {% if (testimonial.author_title) %}
+                {{ testimonial.author_title }}<br/>{% endif %}
+                {{ testimonial.author_company }}</p>
             <p>
                 <a class="btn btn-primary-custom btn-margin-top btn-margin-bottom" href="/testimonials">More Testimonials</a>
             </p>
