@@ -11,7 +11,7 @@ robot_follow = "follow"
 
     public function onStart()
     {
-        $this['testimonials'] = Testimonial::all();
+        $this['testimonials'] = Testimonial::orderBy('date','DESC')->get();
     }
 
 ?>
