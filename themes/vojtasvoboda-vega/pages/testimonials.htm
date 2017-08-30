@@ -1,19 +1,20 @@
 title = "Testimonials"
 url = "/testimonials"
 layout = "default"
+meta_title = "Womack | Testimonials"
+meta_description = "We love happy clients! See what our clients are saying about us."
 is_hidden = 0
+seo_keywords = "property management, properties, panama city property managers, panama city property management companies"
 robot_index = "index"
 robot_follow = "follow"
 ==
 <?php
-
-    use Kma\Testimonials\Models\Testimonial;
+use Kma\Testimonials\Models\Testimonial;
 
     public function onStart()
     {
         $this['testimonials'] = Testimonial::orderBy('date','DESC')->get();
     }
-
 ?>
 ==
 <p>&nbsp;</p>

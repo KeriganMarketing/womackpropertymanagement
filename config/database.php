@@ -56,7 +56,7 @@ return [
             'driver'    => 'mysql',
             'host'      => '216.119.142.71',
             'port'      => '3306',
-            'database'  => 'womackpr_demo',
+            'database'  => 'womackpr_prod',
             'username'  => 'womackpr_usr',
             'password'  => 'E7C&rH.UCT(~~[iu^W',
             'charset'   => 'utf8',

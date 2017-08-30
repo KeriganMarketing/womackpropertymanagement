@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'http://womackpropertymanagement.dev',
+    'url' => 'http://womackpropertymanagement.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'key' => 'fq7wJNebSLEtTAR0nwomzXqkTdnPmLmA',
+    'key' => 'AZTUQoNKbF5SddGLiHgTYLfCdzD7DnKg',
 
     'cipher' => 'AES-256-CBC',
 
