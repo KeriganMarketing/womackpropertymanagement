@@ -30,6 +30,7 @@ class StandardControlsRegistry
         $this->registerSwitchControl();
         $this->registerTextareaControl();
         $this->registerDropdownControl();
+        $this->registerBalloonSelectorControl();
         $this->registerHintControl();
         $this->registerPartialControl();
         $this->registerSectionControl();
@@ -147,6 +148,27 @@ class StandardControlsRegistry
             'rainlab.builder::lang.form.control_dropdown_description',
             ControlLibrary::GROUP_STANDARD,
             'icon-angle-double-down',
+            $this->controlLibrary->getStandardProperties(['stretch'], $properties),
+            null
+        );
+    }
+
+    protected function registerBalloonSelectorControl()
+    {
+        $properties = [
+            'options' => [
+                'title' => Lang::get('rainlab.builder::lang.form.property_options'),
+                'type' => 'dictionary',
+                'ignoreIfEmpty' => true,
+                'sortOrder' => 81
+            ]
+        ];
+
+        $this->controlLibrary->registerControl('balloon-selector',
+            'rainlab.builder::lang.form.control_balloon-selector',
+            'rainlab.builder::lang.form.control_balloon-selector_description',
+            ControlLibrary::GROUP_STANDARD,
+            'icon-ellipsis-h',
             $this->controlLibrary->getStandardProperties(['stretch'], $properties),
             null
         );
@@ -328,7 +350,14 @@ class StandardControlsRegistry
             ],
             'form' => [
                 'type' => 'control-container'
-            ]
+            ],
+            'maxItems' =>  [
+                'title' => Lang::get('rainlab.builder::lang.form.property_max_items'),
+                'description' => Lang::get('rainlab.builder::lang.form.property_max_items_description'),
+                'type' => 'string',
+                'ignoreIfEmpty' => true,
+                'sortOrder' => 82
+            ],
         ];
 
         $ignoreProperties = [
@@ -359,7 +388,7 @@ class StandardControlsRegistry
             'default',
             'defaultFrom',
             'dependsOn',
-            'trigger', 
+            'trigger',
             'preset',
             'attributes'
         ];
@@ -385,7 +414,7 @@ class StandardControlsRegistry
                 'type' => 'dropdown',
                 'default' => 'php',
                 'options' => [
-                    'css' => 'CSS', 
+                    'css' => 'CSS',
                     'html' => 'HTML',
                     'javascript' => 'JavaScript',
                     'less' => 'LESS',
@@ -556,7 +585,7 @@ class StandardControlsRegistry
             ]
         ]);
 
-        $this->controlLibrary->registerControl('codeeditor', 
+        $this->controlLibrary->registerControl('codeeditor',
             'rainlab.builder::lang.form.control_codeeditor',
             'rainlab.builder::lang.form.control_codeeditor_description',
             ControlLibrary::GROUP_WIDGETS,
@@ -902,7 +931,7 @@ class StandardControlsRegistry
                 'sortOrder' => 83
             ]
         ];
- 
+
         $this->controlLibrary->registerControl('recordfinder',
             'rainlab.builder::lang.form.control_recordfinder',
             'rainlab.builder::lang.form.control_recordfinder_description',
@@ -943,7 +972,33 @@ class StandardControlsRegistry
                 'ignoreIfEmpty' => true,
                 'type' => 'string',
                 'sortOrder' => 82
-            ]
+            ],
+            'imageWidth' => [
+                'title' => Lang::get('rainlab.builder::lang.form.property_fileupload_image_width'),
+                'description' => Lang::get('rainlab.builder::lang.form.property_mediafinder_image_width_description'),
+                'type' => 'string',
+                'ignoreIfEmpty' => true,
+                'validation' => [
+                    'regex' => [
+                        'pattern' => '^[0-9]+$',
+                        'message' => Lang::get('rainlab.builder::lang.form.property_fileupload_invalid_dimension')
+                    ]
+                ],
+                'sortOrder' => 83
+            ],
+            'imageHeight' => [
+                'title' => Lang::get('rainlab.builder::lang.form.property_fileupload_image_height'),
+                'description' => Lang::get('rainlab.builder::lang.form.property_mediafinder_image_height_description'),
+                'type' => 'string',
+                'ignoreIfEmpty' => true,
+                'validation' => [
+                    'regex' => [
+                        'pattern' => '^[0-9]+$',
+                        'message' => Lang::get('rainlab.builder::lang.form.property_fileupload_invalid_dimension')
+                    ]
+                ],
+                'sortOrder' => 84
+            ],
         ];
 
         $this->controlLibrary->registerControl('mediafinder',
@@ -995,6 +1050,14 @@ class StandardControlsRegistry
                 'type' => 'string',
                 'ignoreIfEmpty' => true,
                 'sortOrder' => 83
+            ],
+            'select' => [
+                'title' => Lang::get('rainlab.builder::lang.form.property_relation_select'),
+                'description' => Lang::get('rainlab.builder::lang.form.property_relation_select_description'),
+                'group' => Lang::get('rainlab.builder::lang.form.property_group_relation'),
+                'type' => 'string',
+                'ignoreIfEmpty' => true,
+                'sortOrder' => 84
             ]
         ];
 

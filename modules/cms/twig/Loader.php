@@ -45,6 +45,7 @@ class Loader extends LoaderBase implements Twig_LoaderInterface
         }
 
         $content = $this->obj->getTwigContent();
+        $content = ($content != null ? $content : '');
 
         /*
          * Extensibility

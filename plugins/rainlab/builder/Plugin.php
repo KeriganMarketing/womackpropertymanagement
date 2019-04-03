@@ -3,8 +3,11 @@
 use Event;
 use Backend;
 use System\Classes\PluginBase;
+use System\Classes\CombineAssets;
 use RainLab\Builder\Classes\StandardControlsRegistry;
 use RainLab\Builder\Classes\StandardBehaviorsRegistry;
+use RainLab\Builder\Validation\ReservedValidator;
+use Illuminate\Support\Facades\Validator;
 
 class Plugin extends PluginBase
 {
@@ -31,7 +34,7 @@ class Plugin extends PluginBase
     {
         return [
             'rainlab.builder.manage_plugins' => [
-                'tab' => 'rainlab.builder::lang.plugin.name', 
+                'tab' => 'rainlab.builder::lang.plugin.name',
                 'label' => 'rainlab.builder::lang.plugin.manage_plugins']
         ];
     }
@@ -60,7 +63,7 @@ class Plugin extends PluginBase
                         'icon'        => 'icon-random',
                         'url'         => 'javascript:;',
                         'attributes'  => ['data-menu-item'=>'models'],
-                        'permissions' => ['rrainlab.builder.manage_plugins']
+                        'permissions' => ['rainlab.builder.manage_plugins']
                     ],
                     'permissions' => [
                         'label'       => 'rainlab.builder::lang.permission.menu_label',
@@ -109,7 +112,7 @@ class Plugin extends PluginBase
             'config' => [
                 'label'       => 'Builder',
                 'icon'        => 'icon-wrench',
-                'description' => 'Set your plugins namespace and author name.',
+                'description' => 'Set your author name and namespace for plugin creation.',
                 'class'       => 'RainLab\Builder\Models\Settings',
                 'permissions' => ['rainlab.builder.manage_plugins'],
                 'order'       => 600
@@ -127,5 +130,19 @@ class Plugin extends PluginBase
             new StandardBehaviorsRegistry($behaviorLibrary);
         });
 
+        // Register reserved keyword validation
+        Validator::resolver(function ($translator, $data, $rules, $messages, $customAttributes) {
+            return new ReservedValidator($translator, $data, $rules, $messages, $customAttributes);
+        });
+    }
+
+    public function register()
+    {
+        /*
+         * Register asset bundles
+         */
+        CombineAssets::registerCallback(function ($combiner) {
+            $combiner->registerBundle('$/rainlab/builder/assets/js/build.js');
+        });
     }
 }
