@@ -1,4 +1,4 @@
-title = "Properties Managed"
+title = "Current & Past Properties Managed"
 url = "/properties-managed"
 layout = "default"
 meta_title = "Womack | Commercial Properties Managed"
@@ -19,14 +19,13 @@ function onStart()
 ?>
 ==
 <p>&nbsp;</p>
-    <h3>Current Properties</h3>
-    <div class="row">
+<div class="row">
     {% for property in currentProperties %}
         <div class="col-md-3 col-sm-6">
-            <div class="embed-responsive embed-responsive-16by9">
+            <div class="embed-responsive embed-responsive-4by3">
                 <img src="{{ property.image|media }}" class="img-responsive" alt="{{ property.description }}" >
             </div>
-            <div class="property text-center fadeInUp">
+            <div class="property text-center fadeInUp" style="padding-bottom: 0; min-height: 185px;">
                 <h4 class="title">{{ property.name }}</h4>
                 <div class="body">
                     <p class="address">{{ property.address|nl2br }}</p>
@@ -35,18 +34,12 @@ function onStart()
             </div>
         </div>
     {% endfor %}
-    </div>
-
-    <hr>
-
-    <h3>Previously Managed Properties</h3>
-    <div class="row">
     {% for property in previouslyManaged %}
         <div class="col-md-3 col-sm-6">
             <div class="embed-responsive embed-responsive-4by3">
                 <img src="{{ property.image|media }}" class="img-responsive" alt="{{ property.description }}" >
             </div>
-            <div class="property text-center wow fadeInUp">
+            <div class="property text-center fadeInUp" style="padding-bottom: 0; min-height: 185px;">
                 <h4 class="title">{{ property.name }}</h4>
                 <div class="body">
                     <p class="address">{{ property.address|nl2br }}</p>
