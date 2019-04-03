@@ -53,15 +53,18 @@ return [
         ],
 
         'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => '216.119.142.71',
-            'port'      => '3306',
-            'database'  => 'womackpr_prod',
-            'username'  => 'womackpr_usr',
-            'password'  => 'E7C&rH.UCT(~~[iu^W',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
         ],
 
         'pgsql' => [
